@@ -103,15 +103,24 @@
     <div class="login-container">
         <h2>Login</h2>
 
-        <form>
+        <form onsubmit="handleFormSubmit(event)">
             <div class="input-group">
                 <label>Email</label>
-                <input type="email" placeholder="Enter your email" required>
+                <input type="email" id="email" placeholder="Enter your email" required onkeyup="displayEmailValidation(this.value, 'email-feedback')">
             </div>
+
+            <div id="email-feedback" style="margin-bottom: 15px; font-size: 12px;"></div>
 
             <div class="input-group">
                 <label>Password</label>
-                <input type="password" placeholder="Enter your password" required>
+                <input type="password" id="password" placeholder="Enter your password" required onkeyup="displayValidationFeedback(this.value, 'password-feedback')">
+            </div>
+
+            <div id="password-feedback" style="margin-bottom: 15px; font-size: 12px;"></div>
+
+            <div class="input-group" style="display:flex; align-items:center; gap:8px; margin-bottom: 12px;">
+                <input type="checkbox" id="remember">
+                <label for="remember" style="margin:0;">Remember me</label>
             </div>
 
             <button type="submit" class="login-btn">Login</button>
